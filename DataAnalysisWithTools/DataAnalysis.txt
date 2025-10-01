@@ -1,0 +1,44 @@
+Udacity Data Analysis with pandas and NumPy
+
+Data Analysis Process - 5 Steps
+-   Not Linear
+
+    - Ask Questions
+        - problem to solve?
+        - trends?
+        - help identify valuable areas of data to focus on 
+    - Wrangle
+        - Gather Data 
+        - Assess data 
+            - quality / structure
+        - Clean Data 
+            - modify, replace values, remove outliers, etc
+    - Exploratory Data Analysis (EDA)
+        - Patterns
+        - Visuals 
+        - Feature Engineering
+    - Conclusions
+        - predictions / decisions 
+        - ML 
+    - Communicate Findings
+        - Share
+        - Make decisions 
+
+Packages
+
+    - Numpy 
+        - Scientific computing
+        - math 
+        - core ops used in other packages 
+    
+        - import numpy as np 
+            list = [5,4,3,2,6]
+            mean = np.mean(list) 
+
+    - pandas 
+        - data manipulation 
+        - like spreadsheets wtih code 
+
+    - Matplotlib
+        - Plotting
+        - Visuals 

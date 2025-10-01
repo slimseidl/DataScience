@@ -1,0 +1,15 @@
+Jupyter Notebooks
+
+- Combines code, text, equations, tables and Visuals into one document 
+- Connected to backend server for execution
+
+Notebook Server 
+DataAnalysisWithTools
+
+- The central point is the Notebook server
+- connect to the server through your browser, and the notebook is rendered as a web app
+- .ipynb file types
+- Can be any language 
+    - R sent to R Kernel
+    - Python sent to python Kernel
+    - etc.. 
