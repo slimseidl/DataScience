@@ -1,10 +1,10 @@
 Jupyter Notebooks
 
+- To open browser interface: type "jupyter notebook" in the terminal
 - Combines code, text, equations, tables and Visuals into one document 
 - Connected to backend server for execution
 
 Notebook Server 
-DataAnalysisWithTools
 
 - The central point is the Notebook server
 - connect to the server through your browser, and the notebook is rendered as a web app
@@ -13,3 +13,31 @@ DataAnalysisWithTools
     - R sent to R Kernel
     - Python sent to python Kernel
     - etc.. 
+
+Keyboard Shortcuts for Jupyter 
+
+- Edit / Command Mode - Enter / Esc
+- New cell - A for above, b for below 
+- Markdown to code - Y 
+- code to markdown - m
+- Turn on / off line numbers in cells - L 
+- Delete cel - dd
+- Save - S 
+- Commands - CTRL SHIFT P 
+- See shortcuts - H 
+
+Magic Keywords 
+
+- % for line magics 
+- %% for cell magics 
+- %timeit
+   - Used to time how long it takes for a single line to run 
+- %%timeit 
+   - Used for whole cell timing
+   - must go at very top, before comments
+   
+
+
+
+
+
