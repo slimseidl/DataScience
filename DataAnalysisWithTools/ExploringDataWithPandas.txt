@@ -36,6 +36,41 @@ pandas functions:
         - df_se = df.iloc[:, np.r_[0:2,12:22]]
             - selects all rows, first two columns, then cols 12 - 21 
 
+    - .mean()
+        - compute mean of a column / feature 
+        - mean = df["column"].mean()
+    -.fillna()
+        - fill in missing values of a col with a value 
+        - fill in with mean
+            - df["column"] = df["column"].fillna(mean)
+        - inplace parameter - make changes in place rather than new col 
+            - df["column"].fillna(mean, inplace=True)
+    - .duplicated()
+        - view duplicated values 
+        - sum(df.duplicated()) returns a count of duplicates 
+    - .drop_duplicates(inplace=True)
+        - drops duplicates 
+    - df['col'] = pd.todatetime(df['col'])
+        - converts to datetime format 
+    - .drop()
+        - drop features / cols that arent relevant to dataset 
+        - df.drop(columns=["col1", "col2"], inplace=True)
+        - df.drop(["col1", "col2"], axis=1, inplace=True)
+            - axis is row / col 
+            - 0 = row 
+            - 1 = col 
+    - .rename()
+        - rename the columns and make them uniform
+        - can work with either a dictionary or a function that maps the old names to the new ones
+            - df.rename({"sales team": "group"}, axis=1, inplace=True)
+                - renames sales team to group 
+        - rename with a function 
+            - columns = lambda x: x.strip().lower().replace(" ","_"), inplace=True
+            - this method is easy to work with 
+    
+        
+
+
 Wrangling vs. EDA 
 
 - Wrangling = gather, clean, assess
@@ -83,9 +118,13 @@ CSV Files
             - to_csv() will store our index unless we tell it not to
             - makes it not store the index in an unnamed column 
         
+Cleaning Data 
+
+    - 
 
             
         
 
 
 
+LEFT OFF AT SECTION 4.8 QUERYING

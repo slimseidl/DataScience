@@ -42,3 +42,11 @@ Packages
     - Matplotlib
         - Plotting
         - Visuals 
+
+Data Issues 
+
+    - Data types
+    - Missing data 
+    - duplicates
+    - Differnt col names 
+    - mismatched recrods 
