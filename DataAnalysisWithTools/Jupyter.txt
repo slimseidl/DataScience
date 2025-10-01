@@ -32,9 +32,26 @@ Magic Keywords
 - %% for cell magics 
 - %timeit
    - Used to time how long it takes for a single line to run 
-- %%timeit 
+- %%timeit  
    - Used for whole cell timing
    - must go at very top, before comments
+- $pdb
+   - Python debugger
+   - Run at very top of notebook 
+   - can inspect variables with errors 
+
+
+Converting Notebooks
+
+- Under the hood, Notebooks are just big JSON(opens in a new tab) files with the extension .ipynb.
+- nbconvert can convert to HTML, markdwon, slideshows, etc 
+   - jupyter nbconvert --to FORMAT jupyter_intro.ipynb 
+      - Replace format with actual format such as:
+         - HTMl, PDF, webPDF, Markdown, script (py), Notebook 
+   - to convert a Notebook to an HTML file, in your terminal, use
+      - jupyter nbconvert --to html jupyter_intro.ipynb
+   - to run inside jupyter notebook, prepend a ! to any terminal command 
+
    
 
 

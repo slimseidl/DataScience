@@ -1,0 +1,91 @@
+Pandas
+
+Creating Questions
+
+    - Sometimes we ask questions first and get our data later and other times we get the data first and ask questions based on it
+
+pandas functions:
+
+    - df.head() 
+    - df.columns
+    - .shape 
+        - returns the shape of the DataFrame
+    - .dtypes
+        - returns each datatype of the columns
+    - .info()
+        - returns info about the DataFrame including the number of non-null values
+    - .nunique()
+        - returns number of unique values for each column
+    - .describe()
+        - returns summary statistics, e.g. count, mean
+    - .tail()
+    - .loc
+        - uses labels of rows or columns to select data,
+        - df_means = df.loc[:,'id':'fractal_dimension_mean']
+        - location 
+        - first : is rows, second is columns 
+            [:,:] = all rows / columns 
+    - .iloc 
+        - uses the index numbers
+        - df_means = df.iloc[:,:12]
+        - index location
+
+    - numpy.r_ 
+        - concatenates slices of a df 
+        - use with iloc to select separated ranges of columns
+        - df_se = df.iloc[:, np.r_[0:2,12:22]]
+            - selects all rows, first two columns, then cols 12 - 21 
+
+Wrangling vs. EDA 
+
+- Wrangling = gather, clean, assess
+- EDA = explore / augment data 
+    - Engineering new features and removing outliers 
+
+Gathering Data
+
+- Download Data
+- API 
+    - API Layer
+        - A platform offering ready-to-use APIs for structured data access
+        - provides data only if the provider already exposes it via API
+- Scraping 
+    - Scrapy
+        - powerful Python-based web scraping framework designed for large-scale crawls
+- Database 
+
+
+CSV Files 
+
+    - pd.read_csv
+    - Parameters!
+        - filepath = file path of csv file 
+        - sep = separator (, for csv files)
+            - sep = : 
+        - header = header of csv 
+            - header = 2 uses row 2 as column headers 
+            - header = none does not use any headers
+
+        - index_col = which column is t he index, or create a new numeric one 
+            - df = pd.read_csv('student_scores.csv', index_col='Name')
+            - can be more than 1 
+
+        - names = custom labels for columns 
+            - labels = ['id', 'name', 'attendance', 'hw', 'test1', 'project1', 'test2', 'project2', 'final']
+            - df = pd.read_csv('student_scores.csv', names=labels)
+                - uses names as column headers 
+            - df_powerplant = pd.read_csv('powerplant_data.csv',header=0,names= ["temp", "exhaust", "pressure", "humidity", "energy"])
+                - header = 0 removes original col names, replaces with names 
+
+    - pd.to_csv
+    - Parameters 
+        - index = FALSE 
+            - to_csv() will store our index unless we tell it not to
+            - makes it not store the index in an unnamed column 
+        
+
+            
+        
+
+
+
