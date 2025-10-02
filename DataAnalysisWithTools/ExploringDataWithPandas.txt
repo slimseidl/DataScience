@@ -67,6 +67,17 @@ pandas functions:
         - rename with a function 
             - columns = lambda x: x.strip().lower().replace(" ","_"), inplace=True
             - this method is easy to work with 
+    - df.query()
+        - to query a dataframe without repeating df name 
+        - df_2wd = df[df["drive"] == "2WD"] versus df_2wd = df.query('drive == "2WD"')
+        - Numeric Data:
+            - df_low_displ = df[df.displ < 3] versus df_low_displ = df.query('displ < 3')
+    .isnull()
+        - view nulls across dataset 
+        - use df.isnull().sum() to view a count of nulls from each column in the df 
+    .dropna(inplace=True)
+        - Drop rows with missing values 
+    
     
         
 
@@ -118,13 +129,3 @@ CSV Files
             - to_csv() will store our index unless we tell it not to
             - makes it not store the index in an unnamed column 
         
-Cleaning Data 
-
-    - 
-
-            
-        
-
-
-
-LEFT OFF AT SECTION 4.8 QUERYING
