@@ -179,8 +179,40 @@ pandas functions:
             - Variance is a measure that helps us understand how the numbers in a group differ from their average
             - sense of how scattered or clustered the data is
             - square the std dev 
+    - Plotting with pandas 
+        - pandas good for quick vis, matplot for in depth 
+        - .hist()
+            - quick histogram for df 
+                - figsize param for size of output image
+                    - 8 x 8 = 8 by 8 image size
+                - terminating semicolon to suppress unwatned output 
+            - can plot for a single series (col) too 
+                -df['col'].hist()
+        - .plot(kind='chart type')
+            - bar
+            - hist 
+            - pie 
+            - box
+            - df['col'].value_counts.plot(kind='bar')
+            - more parameters 
+                - figsize=(height, width)
+                - title= 'Title of plot'
+                - xlabel = ' X axis label' 
+                - ylabel = y axis label 
+                - color = color_name 
+                - legend = True 
+        - Scatter plots 
+            - df.plot(x=,y=)
+            - df_census.plot(x='capital-gain',y='hours-per-week',kind='scatter')
+        - pd.plotting.scatter_matrix()
+            - matrix of scatter plots and histograms
+    - .nunique() 
+        - number of uniques 
+    - unique() 
+        - value output of uniques 
+    
         
-
+        
 
 
 Wrangling vs. EDA 

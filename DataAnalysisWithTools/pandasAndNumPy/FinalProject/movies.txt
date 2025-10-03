@@ -1,0 +1,25 @@
+Dataset Description
+This data set contains information about 10,000 movies collected from The Movie Database (TMDb). The columns in this data set are as follows:
+
+id: A unique ID number of the row. Int64
+imdb_id: An imdb unique ID number. String/Object
+popularity: The movie's popularity rating. Float64
+budget: The movie's budget. Int64
+revenue: The movie's revenue. Int64
+original_title: The movie's title. String/Object
+cast: A list of cast members. String/Object
+homepage: The movie's website. String/Object
+director: The movie's director. String/Object
+tagline: The movie's tagline. String/Object
+keywords: Keywords for searching. String/Object
+overview: A brief synopsis. String/Object
+runtime: Movie runtime in minutes. Int64
+genres: Primary genres that the movie falls under. String/Object
+production_companies: Companies that aided in production. String/Object
+release_date: Date the movie was released. String/Object
+vote_count: Number of votes. Int64
+vote_average: Average of votes. Float64
+release_year: Year the movie was released. Int64
+budget_adj: Adjusted budget in terms of 2010 dollars. Float64
+revenue_adj: Adjusted revenue in terms of 2010 dollars. Float64
+
