@@ -133,6 +133,54 @@ pandas functions:
             - see last section of fueleconomy.ipynb 
         - df.explode(column="list_values")
             - column param to specify column(s)
+    .groupby()
+        - group columns and compute statistics for them 
+        - df.groupby("workclass").mean(numeric_only=True)
+        - df.groupby(["col1","col2"]).mean(numeric_only=True)
+        - as_index parameter 
+            - False to keep "workclass" and "race" as non index values
+            - use number indices instead 
+    - .sum()
+        - axis parameter 
+        - 0 for sum on rows 
+        - 1 for sum columns 
+    - .sort_values()
+        - by = "column to sort by"
+        - ascending = t or f 
+    - Measures of Center 
+        - .mean 
+        - .median()
+            - center value in a sorted list 
+        - .mode()
+            - highest frequency
+    - Measures of Spread 
+        - quantile()
+            - values that split a group of data into equal parts, helping to show how the data is spread out
+            - [1, 2, 3, 4, 5]
+                - 25% quantile = 2
+                - 50% quantile = 3 (commonly referred to as the median)
+                - 75% quantile = 4
+        - .std()
+            - standard deviation 
+            - shows how much the individual numbers in a group differ from the average
+                - gives an idea of how spread out the data is
+            - stddev = sqrt of the sum of ((value - mean)squared) / number of values 
+                - 1, 2, 3, 4, 5
+                    - mean is 3
+                    - subtract mean from each 
+                    - -2, -1, 0, 1, 2
+                        - square each value 
+                        - 4, 1, 0, 1, 4
+                        - mean for values 
+                            - 10 / 4 = 2.5 
+                                - std dev = sqrt(2.5) = 1.581 
+                                - or std dev = 2.5^0.5 = 1.581
+        - .var() 
+            - Variance is a measure that helps us understand how the numbers in a group differ from their average
+            - sense of how scattered or clustered the data is
+            - square the std dev 
+        
+
 
 
 Wrangling vs. EDA 
@@ -184,7 +232,10 @@ CSV Files
 
 - Communicating Results 
 
-    Numpy 
+    Numpy methods 
         - Speeds up processes
         - built for quick mathematical computation 
         
+        - np.mean()
+            - comptue mean, super fast 
+        - pandas is built on top of numpy, so computations are very fast 
