@@ -1,9 +1,5 @@
 Pandas
 
-Creating Questions
-
-    - Sometimes we ask questions first and get our data later and other times we get the data first and ask questions based on it
-
 pandas functions:
 
     - df.head() 
@@ -72,14 +68,71 @@ pandas functions:
         - df_2wd = df[df["drive"] == "2WD"] versus df_2wd = df.query('drive == "2WD"')
         - Numeric Data:
             - df_low_displ = df[df.displ < 3] versus df_low_displ = df.query('displ < 3')
-    .isnull()
+    - .isnull()
         - view nulls across dataset 
         - use df.isnull().sum() to view a count of nulls from each column in the df 
-    .dropna(inplace=True)
+    - .dropna(inplace=True)
         - Drop rows with missing values 
-    
-    
-        
+    - .astype()
+        - Uses dictionary mappings to cast values to different data types
+            - df['column_A'] = df.astype({'column_A': 'int32'})
+            - better for multiple vals 
+        - Casting using series rather than dict 
+            - df['column_A'] = df['column_A'].astype('int32')
+    - .dtypes 
+        - data types for cols 
+        - No parentheses
+    - .value_counts()
+        - count number of unique values in each col 
+    - .str.contains('value')
+        - search for a value in a string 
+    - .apply()
+        - Apply a function to a column 
+        - for c in split_columns:
+            df1[c] = df1[c].apply(lambda x: x.split("/")[0]) 
+    - pd.concat()
+        - concatenate dataframes 
+        - default is concat on rows (axis=0)
+            - stack dfs on top of each other by adding rows to the end 
+        - axis = 1
+            - combines horizontally, adding more columns to the end of df 
+    - np.iinfo() and np.finfo()
+        - see the minimum and maximum values that can be represented by each size
+        - np.iinfo("int16")
+            - columns can hold values between -32,768 and +32,767
+    - category
+        - If a string's column is repetitive or not very unique, it can be changed to category
+        - reduces space
+    - pd.merge()
+        - joins like sql tables 
+        - left, right, inner, outer 
+        - how param 
+            - how="inner" 
+        - on param 
+            - on = "key to join on" 
+            - left on
+                - left side key if column names are different 
+            - right on 
+                - right side key if col names are different 
+        - df_combined = pd.merge(df_08, df_18, how="inner", left_on="model_2008", right_on="model")
+    - pd.DataFrame.values.tolist()
+        - explodes a list value in a column to new columns 
+            - see last section of fueleconomy.ipynb 
+    - np.random.rand(25,5)
+        - creates a random array 
+        - .rand paramter indicates size of array 
+            - A list of 25 lists 
+            - 5 elements in every list 
+    - pd.DataFrame 
+        - Converts values to a pandas dataframe
+    .tolist()
+        - converts list items to cell values 
+        - each of the 25 lists becomes a separate cell value 
+    - .explode()
+        - explodes a list in a column to separate rows for each list
+            - see last section of fueleconomy.ipynb 
+        - df.explode(column="list_values")
+            - column param to specify column(s)
 
 
 Wrangling vs. EDA 
@@ -128,4 +181,10 @@ CSV Files
         - index = FALSE 
             - to_csv() will store our index unless we tell it not to
             - makes it not store the index in an unnamed column 
+
+- Communicating Results 
+
+    Numpy 
+        - Speeds up processes
+        - built for quick mathematical computation 
         
