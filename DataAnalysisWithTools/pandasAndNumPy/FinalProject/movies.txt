@@ -23,3 +23,7 @@ release_year: Year the movie was released. Int64
 budget_adj: Adjusted budget in terms of 2010 dollars. Float64
 revenue_adj: Adjusted revenue in terms of 2010 dollars. Float64
 
+- What genres profit the most on average?
+- Does a higher budget lead to higher revenue?
+- How has genre popularity changed over time?
+- Which key words are most associated with top grossing films?

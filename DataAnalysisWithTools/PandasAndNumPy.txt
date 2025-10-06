@@ -210,6 +210,11 @@ pandas functions:
         - number of uniques 
     - unique() 
         - value output of uniques 
+    - pd.set_option("display.float_format","{:.2f}".format)
+        - Set float format instead of notation 
+    - .unstack()
+        - pivots one of your grouped index levels into columns.
+        - profit_over_time = df.groupby(["release_year", "genres"])["profit"].mean().unstack()
     
         
         
