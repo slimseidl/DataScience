@@ -1,0 +1,103 @@
+Probability 
+
+Probability Makes predictions about future events based on models or causes that we assume
+
+Statistics Analyze the data from past events to infer what the models or causes could be
+
+
+Probability Intro 
+
+    - Fair Coins 
+        Heads / Tails probability = P(heads) - 0.5 
+    
+    - Loaded Coins 
+        - always heads = p(heads) = 1.0 
+
+    Total Probability Law 
+
+        - P(heads) + P(tails) = 1 
+        - P1 + P2 always = 1 
+
+    Complementary Rule of Probability
+
+        - P2 = 1 - P1 
+
+    Truth Tables 
+
+        Whats the prob of getting heads twice on two flips 
+        Draw out all possible outcomes, each one gets a portion of the total probabilty (1.0)
+
+            H H - 0.25
+            H T - 0.25 
+            T H - 0.25 
+            T T - 0.25 
+        P(H,H) = 0.5 * 0.5 (probability each time that its heads)
+
+        - Always add back up to 1 
+    
+        Example with 3 flips :
+
+
+        Case1 Flip 1 Flip 2	Flip 3	Probability = 0.125 for all ( 1 / 8 outcomes )
+            1	H	H	H	?
+            2	H	H	T	?
+            3	H	T	H	?
+            4	H	T	T	?
+            5	T	H	H	?
+            6	T	H	T	?
+            7	T	T	H	?
+            8	T	T	T	?
+
+            Probabiltiy for heads exactly 1 time = 3 cases = 0.125 * 3 = 0.375 
+
+Binomial Distribution
+
+    - Determines the probability of a string of independent 'coin flip like events'.
+
+    - With an odd number of coin flips, you will always have either more Heads or more Tails.
+    
+    Five Flips, Two Heads 
+
+        - Place H in first slot of truth table 
+        - There are 4 remaining spots heads could come up 
+            - but double counted because of outcomes so have to divide by 2
+        Oucomes = 5 * 4 / 2 = 10 
+    
+    Binomial Distribution Formula:
+    
+        10 Flips 4 Heads 
+
+            10 * 9 * 8 * 7 / (4 * 3 * 2 * 1) = 210
+            Number of scenarios * factorial of number of probabilities divided by probabilities factored 
+        
+        Example: 
+            10 Flips 5 Heads 
+        - Calculate number of available positions
+            - 5 positions (heads)
+                - 10 * 9 *8 *7*6 = 30240
+        - Calc Overcounting 
+            - 5 * 4 *3 * 2 * 1 = 120 
+        - Divide 
+            - 30240 / 120 = 252 
+
+        5 Flips 1 head 
+
+        Probability = n! / k!(n-K)^! / Size of truth table 
+
+        Truth table size = number of possible outcomes to the power of number of flips 
+
+            2 ^ 5 = 32 
+
+            5/32 = .15
+
+
+
+ Conditional Probability 
+
+    - The probability of the outcome of one event is affected by the outcome of another event.  
+
+    
+
+
+
+

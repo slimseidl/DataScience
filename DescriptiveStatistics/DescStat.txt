@@ -1,0 +1,204 @@
+Descriptive Statistics Overview
+
+Quantitative vs. Categorical Data Types 
+
+    Quantitative 
+        - Numerical values 
+        - Height, age, numbers ,income, etc
+
+        Continuous Data 
+            - Can be split into smaller and smaller units all the time 
+            - Age, can be broken into years, months, wekks, days ,etc 
+            - Can be decimal values 
+            - Height, age, income 
+        Discrete Data 
+            - Only takes on a number of values 
+            - Counts 
+
+    Categorical 
+        - Groups / sets of items 
+        - Gender ,grades, zip codes, etc.. 
+
+        Ordinal Data 
+            - Categorical values that are ranked / follow a natural order 
+            - positive interaaction ratings 
+            - Letter grade (A-F), Survey Ratings 
+        Nominal 
+            - Has no natural order 
+            - i.e. dog breeds, fruits, etc.. 
+
+Measures of Center 
+
+    - Mean, median, mode 
+    - median is in a sorted list 
+    - Median for even values 
+        - Take average of two middle numbers 
+    - Mode = Frequency 
+        - Can have many modes 
+
+
+Notation 
+
+Notation is a common language used to communicate mathematical ideas
+    - plus signs are notation 
+
+    Random Variables 
+
+        - Notation for possible values of a process
+        - Think X in algebra 
+        - X = random variable 
+        - Columns can be random variables 
+        - X is a placeholder for all possible values 
+    
+    Observed Values 
+
+        - uses lowercase letters 
+        - Time column = X 
+        - actual value = x 
+        - second value in second row = x3 
+        - in the 100th column x = xn 
+            - nth value 
+
+        Connection to probability 
+
+            - P = probability
+            - X = column to calculate probability
+            - Probability notation for What is the probability someone spends more than 20 minutes on our website?
+
+                - P(X >= 20)
+
+    Millions of values / Aggregations 
+
+        - x1 + x2 +x3 etc.. 
+        - turn multiple numbers into fewer numbers 
+        - Sum = sigma Σ (alt + 228)
+            - Σxi
+                -  i = starting value 
+                - end value = above sigma 
+            - 2
+            - Σxi  = x1 + x2
+            - i=1
+
+            - 4 value example 
+                - 4
+                - Σxi  = x1 + x2 + x3 + x4
+                - i=1
+        - replace top value with n for all values 
+        
+        - Mean Notation 
+            - xbar = 
+                - 1/n * 
+                - n 
+                - Σxi 
+                - i=1 
+
+                where n = num of values 
+        
+
+Measures of Spread 
+
+    Histograms 
+
+        - Visual for spread, most common 
+        - Bin data 
+        - Create bar chart from bins to view spread of data 
+            - center, shape, spread, outleirs 
+    
+    Five Number Summary 
+
+        - Calc the Ranges 
+            - Min 
+            - Q1, Q2, Q3 
+            - Max 
+        - Order Values 
+        - Median = Q2 
+        - Q1 and Q3 = Medians on either side of whole median 
+            - includes the min and max 
+        - For even number of values, median is mean of two center values 
+            - Q1 and Q3 = split dataset between two medians 
+                - Q1 = median of lower half 
+        - Range = Max - Min 
+        - Interquartile Range = Q3 - Q1 
+            - IQR 
+    
+        - Box Plots 
+            - compare spread of datasets 
+            - Use Spread 
+            - Range is full length of plot 
+            - IQR is box ends 
+                - Q1 = Box Start 
+                - Q3 = Box End
+                - Q2 = Mid 
+    
+    Standard Deviation and Variance
+
+        - Variance = the average squared difference of each observation from the mean
+            - 1/n * Σ(xi - mean)^2 
+            - Take all values minus the mean and square them 
+            - Take the average of all squares 
+            - used to compare the spread of two different groups
+                - A set of data with higher variance is more spread out than a dataset with lower variance
+                - Look for outliers first 
+        - Std Dev = Squuare root of variance 
+            - On average how far each observation is from the mean 
+
+        - When data are related to money or the economy, higher variance (or standard deviation) is associated with higher risk
+        - The standard deviation is used more often in practice than the variance because it shares the units of the original dataset.
+
+            2, 3, 3, 3, 4, 6, 7, 8, 9, 12, 15, 15, 22
+            median 7 
+            range = 20
+            q1 = 3
+            q3 = 13.5 
+            IQR = 10.5 
+            Std dev = 5.8
+            Var = 32.9
+
+Outliers and Shape 
+
+    Shape 
+
+        - Histograms show shape 
+            - Shorter on left = left skew 
+            - Shorter on right = right skew 
+            - symmetric = normal / bell curve 
+                - mean = median = mode 
+        - Mode = tallest bar in Histograms
+
+        - Bell Shaped Data 
+            - Heights, Weight, Scores
+            - mean = median = mode
+        - Left Skew 
+            - 	GPA, Age of Death, Price
+            - Mean < median 
+        - Right Skew 
+            - Distribution of Wealth, Athletic Abilities
+            - Mean > median 
+
+    Outliers 
+
+        - outliers are points that fall very far from the rest of our data points
+        - quick plot shows a lot 
+        - Box plots show outlier points 
+        - Common Techniques for working with outliers 
+
+            - Noting they exist and the impact on summary statistics.
+            - If typo - remove or fix
+            - Understanding why they exist, and the impact on questions we are trying to answer about our data.
+            - Reporting the 5 number summary values is often a better indication than measures like the mean and standard deviation when we have outliers.
+            - Be careful in reporting. Know how to ask the right questions.
+
+            - Plot your data to identify if you have outliers.
+            - Handle outliers accordingly via the previous methods.
+            - If no outliers and your data follow a normal distribution - use the mean and standard deviation to describe your dataset, and report that the data are normally distributed.
+            - If you have skewed data or outliers, use the five-number summary to summarize your data and report the outliers.
+
+        
+    
+
+
+
+
+
+
+
