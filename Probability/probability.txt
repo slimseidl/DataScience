@@ -96,6 +96,26 @@ Binomial Distribution
 
     - The probability of the outcome of one event is affected by the outcome of another event.  
 
+    Cancer Example 
+
+        - P(c) of having cancer = 0.1 
+        - P(p) positive test = 0.9 
+        - P(n) negative test = 0.1
+
+        - Whats the probability of a positive test regardless if have cancer or not? 
+
+            Take .1 * .9 = .09 + (1-.9) * (1-.8)
+                = .27 
+        
+
+        P(Pos) = P(c) * P(p|c) + P(-c) + P(pos|-c)
+
+
+    - Take the probability of first condition timse probability of second condition to get overall Conditional probability
+
+
+    - For probability of positive test regardless of status, add up positive test probabilities 
+
     
 
 
