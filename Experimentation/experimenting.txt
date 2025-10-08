@@ -18,8 +18,67 @@ Types of Studies
         - manipulation is controlled by the experimenter, there aren't multiple groups to compare
 
 
-Normal Distribution Theory
+Descriptive and Inferential Statistics 
 
-    Max Probability
+    - Descriptive statistics is about describing our collected data using measures of center, spread, shape, Distribution, and outliers 
+    - Inferential Statistics is about using our collected data to draw conclusions to a larger population
+    - Performing inferential statistics well requires that we take a sample that accurately represents our population of interest
+        - Population - our entire group of interest.
+        - Parameter - numeric summary about a population
+        - Sample - a subset of the population
+        - Statistic - numeric summary about a sample
 
-        - 
+    Sampling Distribution
+
+        - Take random samples of data 
+        - Plot all possible combinations on a histogram 
+        - All of these are the sampling Distribution
+    
+    Sampling Distribution in Python 
+
+        NumPy Methods
+
+            - Random Seeding 
+                - np.random.seed
+                    - get the same results each time you run through a notebook
+                - he number you pass in is not important, what matters is that you use the same one each time
+            - Array 
+                - v = np.array([1,2,3])
+                - v.shape would return (3,)
+            - Summary stats 
+                - np.var() 
+                - np.std() 
+                - np.mean()
+                    - Works as a proportion when data is binary 
+            - np.random.choice(array, size="number of draws")
+                - simulate draws from the array
+                - pass in the array to be drawn from, then the number of times a choice should be made using the size parameter
+            
+        Matplotlib Methods 
+
+            - import matplotlib.pyplot as plt
+            - plt.hist(v)
+                - plot hist
+            - plt parameters 
+                - alpha=0.5
+                    - transparency for images 
+                - label = label for bars 
+            - plt.legend();
+                - shows legend
+            
+Law of Large Numbers 
+
+    - the larger our sample size, the closer our statistic gets to the parameter
+    - If estimating the mean:
+        - if sample size is 500 out of 5,000,000, going to be further away from actual mean 
+        - if sample is 500,000 out of 5million, will be closer to actual mean 
+    
+Central Limit Theorum 
+
+    - with a large enough sample size the sampling distribution of the mean will be normally distributed
+    - Applies to: 
+        - Sample means 
+        - Sample proportions
+        - Difference in sample means (xbar1 - xbar2)
+        - Difference in sample proportions
+    
