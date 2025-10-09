@@ -71,6 +71,8 @@ pandas functions:
     - .isnull()
         - view nulls across dataset 
         - use df.isnull().sum() to view a count of nulls from each column in the df 
+        - use df.isnull().any() to view columns with missing values
+            - returns col name with boolean 
     - .dropna(inplace=True)
         - Drop rows with missing values 
     - .astype()
@@ -215,6 +217,10 @@ pandas functions:
     - .unstack()
         - pivots one of your grouped index levels into columns.
         - profit_over_time = df.groupby(["release_year", "genres"])["profit"].mean().unstack()
+    - .loc()
+        - Access a whole row 
+        - df.loc[[rowid]]
+        - returns whole row matching index id 
     
         
         

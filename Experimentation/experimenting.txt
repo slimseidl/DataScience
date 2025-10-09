@@ -53,6 +53,11 @@ Descriptive and Inferential Statistics
             - np.random.choice(array, size="number of draws")
                 - simulate draws from the array
                 - pass in the array to be drawn from, then the number of times a choice should be made using the size parameter
+                - replace parameter 
+                    - replace = False, once a value is chosen, it cant be chosen again 
+
+            - np.sample() - takes a df and a sample size 
+            - np.percentile(df, 2.5), np.percentile(df,97.5) ------ gives confidence interval of 5%, take 2.5 off bottom and top 
             
         Matplotlib Methods 
 
@@ -81,4 +86,36 @@ Central Limit Theorum
         - Sample proportions
         - Difference in sample means (xbar1 - xbar2)
         - Difference in sample proportions
+    - Pull samples and plot on histograms until it's bell shaped 
+    - No matter how skewed a population is, it can still be distributed evenly with proper sampling
+
+
+Bootstrapping 
+
+    - Sampling with replacement 
+        - For every random draw, the same sample is put back into the population and could be drawn from again 
+        - .random.choice samples this way 
+        - np.random.choice
+    - Used in machine learning algorithms
+
     
+
+Recap:
+
+Sampling Distributions
+
+    Sampling Distributions are the distribution of a statistic (any statistic).
+    There are two fundamental mathematical theorems that are related to sampling distributions: The Law of Large Numbers and The Central Limit Theorem.
+    The Law of Large Numbers states that the sample mean will get closer to the population mean as the sample size increases. In general, if our statistic is a "good" estimate of a parameter, it will approach our parameter with larger sample sizes.
+    The Central Limit Theorem states that our sample mean will follow a normal distribution with large enough sample sizes, but it turns out this is true for more than just the sample mean.
+
+Bootstrapping
+    Bootstrapping is a technique where we sample from a group with replacement.
+    We can use bootstrapping to simulate the creation of sampling distribution, which you did many times in this lesson.
+    By bootstrapping and then calculating repeated values of our statistics, we can understand the sampling distribution of our statistics.
+
+Confidence Intervals
+
+    - use bootstrapping and sampling distributions to build confidence intervals for our parameters of interest
+    - np.sample() 
+    - np.percentile(df, 2.5), np.percentile(df,97.5) ------ gives confidence interval of 5%, take 2.5 off bottom and top 
