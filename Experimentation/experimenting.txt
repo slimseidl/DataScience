@@ -169,3 +169,41 @@ Hypothesis Testing
             - Setting a guilty person free 
             - Null is chosen but alternative is true 
             - denoted by the symbol β or beta 
+
+
+    - P Values 
+        - the probability of observing your statistic (or one more extreme in favor of the alternative) if the null hypothesis is true
+        - Calculating 
+
+            - Simulate the values of your statistic that are possible from the null
+            - Calculate the value of the statistic you actually obtained in your data
+            - Compare your statistic to the values from the null
+            - Calculate the proportion of null values that are considered extreme based on your alternative
+
+        - Closer to 1, accept null hypothesis 
+        - Closer to 0, reject null hypothesis
+
+
+
+    - Power analysis 
+
+        - Used to estimate how long we need to run an experiment to see a specified impact in metrics
+
+
+A/B Testing 
+
+    - Version of hypothesis testing 
+    - Old group / new group for website design 
+    - Change Aversion 
+        - Users may not respond well to a change and give more use to an older version 
+        - Be cautious 
+    - Novelty effect 
+        - Users may like it just because its new 
+    - Both noverlty effect and change aversion present biases 
+    - Control Groups 
+        - Using the original product or  feature 
+    - Experiment Group 
+        - Using the new version or product 
+    - Click Through Rate 
+        - Number of clicks divided by number of users that visit 
+        - Use unique visitors who clicked at least once / unqique viewers 
