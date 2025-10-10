@@ -57,6 +57,8 @@ Descriptive and Inferential Statistics
                     - replace = False, once a value is chosen, it cant be chosen again 
 
             - np.sample() - takes a df and a sample size 
+                - replace = False, once a value is chosen, it cant be chosen again 
+                - True can be picked again 
             - np.percentile(df, 2.5), np.percentile(df,97.5) ------ gives confidence interval of 5%, take 2.5 off bottom and top 
             
         Matplotlib Methods 
@@ -119,3 +121,51 @@ Confidence Intervals
     - use bootstrapping and sampling distributions to build confidence intervals for our parameters of interest
     - np.sample() 
     - np.percentile(df, 2.5), np.percentile(df,97.5) ------ gives confidence interval of 5%, take 2.5 off bottom and top 
+
+
+Practical vs Statistical Significance
+
+    - Statistical Significance
+        - Using confidence intervals and hypothesis testing
+
+    - Practical
+        - takes into consideration other factors of your situation
+        - Constraints like space, time, or money are important
+
+    - The confidence interval width is the difference between your upper and lower bounds of your confidence interval
+    - margin of error is half the confidence interval width and the value that you add and subtract from your sample estimate to achieve your confidence interval final results.
+
+
+
+Hypothesis Testing 
+
+    -  collect data to justify which hypothesis is likely to be true
+    - allow for the use of sample data to draw conclusions about an entire population
+    - always performing hypothesis tests on population parameters, never on statistics
+    - Statistics are values that you already have from the data, so it does not make sense to perform hypothesis tests on these values
+
+    - Setting up Hypothesis Tests 
+
+        - Null Hypothesis
+            - the value we believe to be true before collecting any data 
+            - H0 
+        
+        - Alternative Hypothesis 
+            - What you want to prove to be true 
+            - H1
+
+    - Hypothesis Errors 
+
+        - Type 1 Errors 
+            - Claiming an innocent person as guilty 
+            - False Positives
+            - Alternative is chosen, but the null is actually true 
+            - Worst of the two erros 
+            - set up your null and alternative hypotheses so that the worse of your errors is the type I error.
+            - denoted by the symbol α (alpha)
+        
+        - Type 2 Error
+            - False Negatives
+            - Setting a guilty person free 
+            - Null is chosen but alternative is true 
+            - denoted by the symbol β or beta 
