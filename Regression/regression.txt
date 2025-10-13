@@ -1,0 +1,101 @@
+Linear Regression 
+
+    - Simple Linear Regression
+        - Two quantitative variables compared 
+            - Scatter plots work well 
+        - Response Variable 
+            - Variable interested in predicting 
+        - Explanatory Variable 
+            - variable used to predict the resposne 
+        
+        - Price vs sales where price is the explanatory - more control, sales = response 
+
+        - Correlation Coefficient 
+
+            - Tells us the strength and direction of a linear relationship
+            - denoted by lowercase r
+            - Between -1 and 1
+                - closer to 1 = stronger 
+                - positive = upward slope, Negatives = downward slope 
+                - -0.92 = strong negative 
+                - 0 makes a parabola / U Shape 
+
+            - Rules of Thumb 
+
+                - .7 <= |r| < 1 = strong 
+                - .3 <= |r| < .7 = moderate 
+                - 0 - 0.3 = weak 
+    
+    - Fit Line Definition 
+        - Consists of intercept and slope 
+        - y = b0 + b1x 
+        - Intercept 
+            -  the predicted value of the response when the x-variable is zero
+            - b0
+            - line on y axis when x = 0
+        - Slope 
+            - the predicted change in the response for every one unit increase in the x-variable
+            - b1
+        - y vs yhat 
+            - yhat = points on the line (x1, yhat1)
+                - Predicted value of the response from the line 
+            - y = actual data points (not on line) (x1,y1)
+        - x1 = explanatory variable
+
+    - Fitting a Line 
+
+        - Least Squares Algorithm 
+
+            - Minimize the sum of the squared vertical distances from the line to points 
+            - Σ(yi - Yhati)^2 
+            - Find the smallest possible value from the formula using StatsModels or scikit learn package 
+
+        - StatsModels 
+            - Statsmodels easily provides coefficients, p-values, and model summaries, similar to the libraries in R or SAS, we will be using it here.
+            - Scikit learn often preferred 
+
+            - OLS Method 
+                - Ordinary Least Squares 
+                - import StatsModels as sm 
+                - sm.OLS(yval, list of x values)
+                - results = lm.fit() 
+                    - fits the model 
+                - results.summary()
+                    - displays statistics
+
+
+Multiple Linear Regression 
+
+    - Use quantitative and categorical variables 
+    - y^ = b0 + b1x1 +b2x2 + b3x3 etc 
+    - Create a matrix using X 
+
+    - Fitting 
+
+        - similar to OLS method, add y value (prediction), and list of quantitative x values to model 
+
+Dummy Variables 
+
+    - Encoding categorical values as 1 or 0
+    - Create a new column for each unique categorical value 
+    - IF column contains A, B, C, D
+        - Create 4 cols 
+        - If that row contains an A for the A column, put a 1 there, else 0
+            - Repeate for all cols 
+        - End up dropping one of the cols because it can be inferred from results of the other columns
+            - called the baseline column 
+    - pandas method 
+        - pd.get_dummies(df['categorical column'])
+        - df[['A', 'B', 'C']] = pd.get_dummies(df['categorical col'])
+        - lm = sm.OLS(df['price'], df[['intercept','lodge','ranch']])
+            - didnt include victorian bc thats our drop / baseline 
+        - intercept = baseline 
+        - each other coefficent is a comparison to the baseline 
+
+Logistic Regression 
+
+
+
+    
+        
+            
