@@ -115,6 +115,11 @@ Logistic Regression
     - Interpreting Results 
 
         - for every one unit increase in the explanatory variable x1,  we expect a multiplicative change in the odds
+
+    - Model Metrics
+        - Accuracy
+            - the most common measure to use is accuracy.
+            - number of correctly labeled rows divided by total number of rows in df 
         
         
     
