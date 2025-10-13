@@ -94,7 +94,30 @@ Dummy Variables
 
 Logistic Regression 
 
+    - make a prediction about the relationship between categorical dependent variables and predictors
+    - predicts categorical responses when there are only two possible outcomes
+    - Predict fraud on a credit card, predict loan approvals 
+    - Bounds to a probability between 0 and 1 
 
+    - 1 and 0 outcome only 
+        - Fraud = 1, not = 0 
+    - Linear regression can take any value / is uncontrolled
+        - House could have a negative price 
+    
+    - Fitting a model 
+
+        - Change categorical to dummy variables 
+        - uses logit rather than OLS 
+            - model = sm.logit(df[fraud], df[intercept, duration])
+            - results = logit.model.fit()
+            - results.summary2()
+
+    - Interpreting Results 
+
+        - for every one unit increase in the explanatory variable x1,  we expect a multiplicative change in the odds
+        
+        
+    
 
     
         
