@@ -1,0 +1,192 @@
+Data Wrangling Summary 
+
+    -  a set of processes for turning raw and messy data into a clean format to answer interesting questions from the data
+    -  three phases to data wrangling:
+        - gather 
+        - assess
+        - cleaning 
+    - often done by analysts and can be used in conjunction with Extract, Transform, and Load
+    - Environment needed for this course 
+
+        - Jupyter
+        - Notepad
+        - Excel 
+    - More Magic Keywords 
+        - Terminal Commands in jupyter 
+            - !mkdir 
+            - %ls 
+                - show file in active directory
+            - %timeit 
+    -Convert notebooks 
+        - jupyter nbconvert --to FORMAT mynotebook.ipynb 
+        - Formats:
+            - HTML
+            - Latex
+            - PDF
+            - Markdown
+            - slideshow
+            - ascii
+            - notebooks
+            - executable script
+        - pip install nbconvert 
+
+    - Real World Wrangling 
+
+        - Define a questions
+        - Gather the data 
+            - variable sources
+        - Assess Data 
+            - missing data
+            - outliers
+            - innaccurate values 
+        - Clean the Data 
+            - clean up issues from previous step 
+        - Answer the questions 
+            - Draw conclusions 
+
+File Types and Data Wrangling 
+
+    - Unzipping Files 
+        - zipfiles package 
+
+            - import zipfiles
+            - with zipfile.ZipFile("file.zip","r") as zip_ref:
+                zip_ref.extractall("targetdir")
+    - Flat Files 
+        - .txt, .csv, .tsv
+        - delimiters
+        - not all .txt files are flat files
+        
+    - Flat Files in Python 
+        - pd.read_csv
+            - can also read tsv's by passing sep parameter
+            - sep='\t'
+        - Zip files 
+            - import zipfile 
+            - with zipfile.ZipFile(filename,"r") as zip_ref:
+            - zip_ref.extractall("newfoldername/")
+                - extractall extracts all files to the folder 
+            - pd.read_csv
+            - wont read the values correctly
+
+            - Next Steps:
+                - Sep = ";"
+                - header = 0
+                    - defines header as first row of csv 
+                - dtype = {dictonary}
+                    - define datatypes of the column labels 
+                - index_col = 
+                    - define an index col label 
+                - na_values
+
+
+Programatically Downloading Files
+
+    - requests library
+        - response = requests.get()
+        - response.raise_for_status()
+            - status code 
+        - file_path = os.path.join(folder_name, url.split('/)[-1])
+            - joins the folder name with the file name to put in folder 
+        - with open(file_path, mode='wb' (binary)) as file:
+            - file.write(response.content)
+    - os library 
+        - Create a directory to store the retrieved data 
+        - folder_name = reviews_2017
+        - if not os.path.exists(folder_name):
+            - os.makedirs(folder_name)
+        - urls = list of urls 
+        
+        
+Text Files 
+
+    - Use a specific character set
+    - Contain no rules for structure and no formatting, like italics or bolding
+    - Have no media, like images or video
+    - Lines of text are separated by newline characters or backslash ends in Python
+    - can be viewed and edited in simple text editors
+    - Character Sets 
+        - 
+    - Encoding
+        - assigns a uniqe numeric identifier
+        - ASCII 
+            - A = 65
+            - 1 = 49
+        - Unicode 
+            - used by most sytems 
+            - UTF 8
+        - .encode function 
+            - .encode(ASCII)
+
+    -Glob Module 
+        
+        - glob.glob('ebert_reviews_2017'/*.txt)
+            - finds any files with a txt extension in the directory
+        - with open(dir, encoding='utf-8') as file:
+            title = file.readline()[:-1] - 1stline 
+            #Read the 2nd line and remove the new line character
+            review_url = file.readline()[:-1]
+
+            df = pd.DataFrame(text_list, columns =[])
+
+Gather with API's
+
+    - get requests 
+    - json 
+    - import requests
+    - import json() 
+    - response = requests.get(url).json()
+    - with open('book.json','w') as f:
+        json.dump(json_dat,f)
+        - saves the data to a file 
+
+
+Json in Python 
+
+    - .content displays all content 
+    - json.loads deserialzes output format to python object 
+    - .json() works the same way 
+
+Web Scraping 
+
+    - use requests.get(url)
+    - Save to an HTML file 
+        - with open(file.html, mode="wb) as file:
+            file.write(.content)
+    - When given a choice, pick APIs over scraping
+    - Scraping is brittle and breaks with web layout redesign because the underlying HTML has changed
+
+HTML in Python 
+
+    BeautifulSoup
+
+        - HTML Parser 
+        - from bs4 import BeautifulSoup
+        - with open('file.html') as file:
+            variable = BeautifulSoup(file, 'html.parser')
+        - .prettify()
+            - pretty prints HTML output 
+        - variable.find("title")
+            - finds the tag with the title tag 
+            - prints the text in the title tag 
+            - variable.find("title).text.strip()
+                - only return text without tags
+            - find values within a tag by tag type or class 
+                - variable.find("a", class_="item to find")
+        - .findall()
+            - finds all the matches 
+            - items = soup.findall("a", class="something")
+                - for item in items:
+                    print(item.text.strip())
+
+Relational Database Wrangling 
+
+    - SQLAlchemy
+        - from SQLAlchemy improt create_engine, text 
+        - engine = create_engine('sqlite:///databasename.db')
+        - Store data 
+            - df.to_sql('table', engine, index=False, if_exists='repalce')
+                - table creates table name 
+        - Read Data 
+            - df_gather = pd.read_sql(sql=text('Select * From table), con=engine.connect())
+            - df_gather.head()
