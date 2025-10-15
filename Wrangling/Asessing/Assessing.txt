@@ -1,0 +1,31 @@
+Dirty Data vs Messy Data 
+
+    - Dirty = inaccurate, or a data quality issue 
+    - Messy = poor structure, unorganized
+
+Data Quality Metrics 
+
+    - Completeness 
+        - a metric that helps you understand whether your data is sufficient to answer interesting questions or solve your problem.
+        - missing data in incomplete / NAN 
+        - Can remove
+        - can replace / impute the means 
+    - Validity
+        - helping you understand how well your data conforms to a defined set of rules for data, also known as a schema
+        - Zip codes should be integer 
+        - does data lie within a range? 
+    - Accuracy 
+        -  helps you understand whether your data accurately represents the reality it aims to depict
+        - uncalibrated scales record 5lbs heavier 
+    - Consistency 
+        - helps you understand two things:
+            - whether your data follows a standard format 
+            - whether your data’s info matches with information from other data sources
+        - Mm/dd/yy format vs. dd/mm/yy 
+        - needs to have same formats 
+    - Uniqueness
+        - helps you understand whether there are duplicate or overlapping values in your data
+
+Programmatic Assessment 
+
+    - 
