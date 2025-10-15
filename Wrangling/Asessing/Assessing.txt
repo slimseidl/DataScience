@@ -28,4 +28,11 @@ Data Quality Metrics
 
 Programmatic Assessment 
 
-    - 
+    - oews_data_subset['H_MEAN'] = oews_data_subset['H_MEAN'].replace({'*':np.nan})
+    - subsetting 
+
+    - Store single observational units in a single table
+    - Normalize data 
+        - not stored in both cols and rows 
+        - no two variable stored in a single column 
+        
