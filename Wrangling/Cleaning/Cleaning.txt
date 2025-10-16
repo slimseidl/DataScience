@@ -270,4 +270,39 @@ Cleaning Time Series Data
 Testing
 
     - Plot data 
-    - 
+    - use seaborn as sns for heatmaps 
+        - import seaborn as sns 
+        - sns.heatmap(df.isna().transpose(), cbar_kws={"labels": 'Missing Data'})
+            - heat map of missing values 
+        - df.dropna()
+            - replot 
+    - Asssert statements 
+        - assert df.col.dtype == "Object"
+        - assert df.col.dtype == "Float"
+        - assert df.col.isnull().sum() == 0
+        - assert (df.wage <= 150).all()
+
+
+Storing / Publishing Data 
+
+    - df.to_csv('folder/file.csv, index=False, encoding="utf-8")
+        - index = false to not store the index as a column 
+    - df.to_sql
+        - 'table name'
+        - con = engine 
+        - if_exists
+            - append 
+            - replace 
+        - index_label = 'col' 
+            - specify an index column 
+    - Store raw data separate from clean data 
+        - two copies 
+    - data folders ,source folders, results folders 
+        - structure 
+    - Save data to a pickle file
+        - after saving the cleaned data to .csv files, datatypes not be reflected when you load the file again
+        - df.to_pickle("./FILE_NAME.pkl")
+            - datatypes get stored 
+        - 
+
+    
