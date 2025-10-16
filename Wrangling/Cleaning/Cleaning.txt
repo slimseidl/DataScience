@@ -1,0 +1,273 @@
+Cleaning Data 
+
+    - The data cleaning process:
+
+        - Define
+            - write a data cleaning plan by converting your assessments into cleaning tasks
+
+        - Code 
+            - translate the data cleaning plan to code and run it to clean the data
+
+        - Test 
+            - test the dataset, often using code, to ensure the cleaning code works and revisit some of the elements from the assessment phase
+
+        - create a reproducible workflow that cleans the Data
+            - Write a function of your code to clean the data to be reused later when rerunning analysis
+    
+    - Data Structure Issues 
+
+        - Column headers are values rather than labels 
+        - Multiple variables store in one column 
+        - Variables stored in rows and columns 
+        - Multiple units store in same table 
+        - single unit stored in separate tables 
+
+    - Data Structuring Techniques 
+
+        - Unpivot / Melting 
+
+            - Turning column headers that are values into row/column values 
+            - i.e. - student test scores across the top as col headers, values are frequency/count 
+                - unpivot to a Test score column and count column 
+            - convert a wide dataset (with many columns) into a long format (with fewer columns and more rows)
+
+            - .melt() method 
+                - id_vars parameter = the column to use as the identifier row 
+                    - all columns other than this one are unpivoted 
+                - var_name parameter 
+                    - name of your new variable / col header 
+                - value_name parameter 
+                    - name of the value column(s)
+
+        - Pivoting 
+            - Pivot tables 
+            - Grouping / Aggregates
+            - convert a long dataset into a wide dataset and create useful groupings
+
+            - .pivot() method / parameters 
+                - index = values to create groupings for 
+                - columns = columns to create 
+                - values = column values to aggregate
+
+        - Transposing 
+
+            - Condensing a dataset 
+            - Table with values as the headers, 
+            - flip to a table 
+            - switch rows with columns and columns with rows
+
+            - .T method 
+                - df.T 
+                - .set_index('IndexValue').T
+
+        - Merging 
+            
+            - Combining tables on a matching value 
+            - Keys 
+
+            - pd.merge(table1, table2)
+            - by default is inner join 
+            - on parameter 
+                - specifies keys to join on 
+                - on=["col"]
+            - how parameter 
+                - join type 
+                - how = 'right'
+                    - default is inner 
+            - left_on / right_on 
+                - specifies which dataframe's index (left or right) to use as the join key
+        
+        - Appending / Concatenate 
+
+            - Adding data points from one table onto the bottom of another
+            - Good for datasets with same column values in two differnet tables
+            - Combines vertically where merging combines horizontally
+
+            - pd.concat([table1, table2], ignore_index=True)
+                - ignore_index=True to not use index on concat 
+
+        - Group By / Aggregate 
+
+            - Sums / Means / etc 
+            - .groupby('column', sort=False)["Col to sum/mean/agg"].agg(["aggtype1","aggtype2"])   (sum, mean, max, etc)
+
+Defining Complex Cleaning Tasks
+
+    - Outliers 
+
+        - anomalies in data 
+        - beyond normal range 
+        - determine to remove or not 
+        - dont just omit, analyze first 
+            - box plots 
+            - mins/maxs
+        
+        - Identifying outliers when a range is known:
+
+            - df.loc to access the rows by index outside range 
+            - df.loc[(df["age"] > 18)]
+            - df.loc[(df["age"] < 11)]
+
+        - When range isnt known: 
+
+            - df.describe().loc[['mean','std']]
+                - returns mean and stand dev for df 
+            - Calculate upper and lower bound for df 
+                - upper = df['age']['mean] + df[age][std]
+                - lower = df['age']['mean] - df[age][std]
+            - violating rows = df[(df[age] < lower) | df[age] > upper]
+            - outliers = violating rows.index
+               - get index of out of bounds values 
+            - df.drop(index=outliers, inplace=True)
+            - df.describe()
+
+    - Duplicates 
+
+        - .duplicated([col1, col2]) 
+            - get duplicated rows 
+            - returns t or f 
+        - df.loc[df.duplicated([col1,col2])]
+            - shows actual values of duplicates minus the first occurence
+        - Keep records of two thigns 
+            - number of rows with duplicates 
+                - df.duplicated().sum()
+            - trends in duplicates 
+                - which duplicate to delete?
+        - df.drop_duplicates(subset=[cols, cols])
+            - keep parameter 
+                - keep = 'last' drops all dups except the last 
+        - df.drop([index])
+            - to drop middle row duplicates 
+
+    - Missing Data 
+
+        - What if missing data / nulls are misrepresented with a - or # or else?
+            - df.loc[df['col'].isin(["-"])]
+                - returns index location of isin value 
+            - np.nan 
+                - value becomes NAN for identifying nulls values 
+            - df[col].replace({'value': np.nan})
+                - replace null identifier with nan 
+
+        - Handling the nan's / na's after replacing 
+
+            - df.isna().sum()
+                - sum of na's 
+            - df.dropna()
+                - drops na's 
+            - drop column when 90-95% are na's 
+            - df.drop(col, axis=1)
+            - impute values 
+                - df.fillna(df.mean())
+                    - fills in the nans with the mean 
+                - single column imputation 
+                    - df[col] = df[col].fillna(df[col].mean())
+            - describe() ignores nans 
+            - pd.cut()
+                - creates bins for data 
+                - categories
+                - df[col] = pd.cut(df[col],4) = groups of 4 
+                    - df.value_counts()
+                
+
+            
+Preprocessing Data with SciKit Learn 
+
+    - import sklearn 
+    - from sklearn.Preprocessing import OneHotEncoder, StandardScaler, OrdinalEncoder
+    - from sklearn.impute import SimpleImputer
+    - from sklearn import set_config
+
+    - set_config(transform_output = "pandas")
+        - set pandas dataframe format 
+
+    - Scale data 
+        - for ML tasks 
+        - ensure data folllows a standard scaling format 
+        - In many real-world cases, the scale or range of units applying for one variable in our dataset doesn’t apply to others
+        - sklearn’s StandardScaler(), MinMaxScaler(), or RobustScaler() 
+
+        - scaler = StandardScaler().fit(dataset)
+            - fit the scaler to a dataframe with .fit 
+            - fitting computes mean and stdev to be used later 
+            - scaler.mean 
+            - scaler,scale_ = stdev 
+        - scaled = scaler.transform(df)
+    
+
+    Encoding Data 
+
+        - Like creating dummies for regression models 
+        - Ordinal Encoding 
+
+            - encodes categorical features as an integer array 
+            - from numpy import asarray 
+            - data = asarray([data],[wranling],[rocks])
+                - puts values to an array 
+            - encoder = OrdinalEncoder()
+            - encoder.fit_transform()
+                - fits and transforms in one function from sklearn 
+        
+        - One Hot Encoding 
+
+            - like pd.get_dummies, this creates columns for each value with a numeric assignment
+            -  encoder = OneHotEncoder(sparse_output=False)
+            - encoder.fit_transform(df)
+
+
+
+Clean Text Data 
+
+    - Normalize 
+        - Conver to lower 
+        - remove words like "a" and "the"
+        - split text into tokens 
+        - vectorize
+            - covnert to vector / list 
+        - df[col].str.capitalize()
+            - changes it to lowercase i guess? 
+        - Using regex to remove punctuation 
+            - df[col].str.replace('[^\w\s]','')
+                - [^\w\s] = regex for punctuation
+        - Create new col from contains method 
+            - df.loc[df[col].str.contains('data science'),'New Column Name'] = 'data science'
+    - Tokenize Data 
+
+        - import nltk 
+            - text cleaning 
+        - nltk.download('punkt')
+        - df["token'] = df[col].apply(nltk.word_tokenize)
+            - creates tokens / list of words separated 
+        
+    - Vectorize 
+
+        - from sklearn.feature_extraction.text import CountVectorizer
+        - vectorizer = CountVectorizer()
+        - word_matrix = vectorizer.fit_transform(df[col].values)
+            - builds vocabulary on input text data (fit)
+            - converts input text into numbers based on the learn vocabulary
+                - the transform 
+        - word_matrix.toarray()
+
+        - vectorizing makes it machine readable
+
+Cleaning Time Series Data 
+
+    - df['Year'] = df['Date'].dt.year
+        - exract year from date 
+    - df['Date'].max() - df['Date'].min()
+        - time range 
+    - df = df.set_index('Date')
+        - set index as date
+    - df.['day_of_week'] = df.index.dayofweek 
+        - new day of week col 
+    - df.index.strftime('%B, %d, %Y')
+        - convert to differnt date format 
+    - df.fillna(method='ffill)
+        - fills date with previous matching in order 
+    
+
+Testing
+
+    - Plot data 
+    - 

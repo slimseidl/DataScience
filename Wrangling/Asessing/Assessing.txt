@@ -35,4 +35,5 @@ Programmatic Assessment
     - Normalize data 
         - not stored in both cols and rows 
         - no two variable stored in a single column 
-        
+        - Combine tables where possible 
+        - 
